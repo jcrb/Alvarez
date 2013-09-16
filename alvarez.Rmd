@@ -3,43 +3,106 @@ Etude Alvarez
 
 La question de recherche est dans Read.me
 
-ce qu'il ne faut pas faire...
+Les données ne sont pas exploitables car pour un sujet donné ayant bénéficié d'une pédgogie active (ou passive) on ne sait pas quel est son comportement face à une question avant et après la formation. pour chaque personne il faut pouvoir répondre à la question: a la question Qx le sujet i a pépondu juste avant la formation (oui ou non) et après la formation (oui ou non). L'ensemble des réponses permet de compléter un tableau 2x2 qui sera soumis au test de Mac Nemar (variante du khi2 pour test dichotomique et séries appariées).
+
+Pour exploiter à minima le questionnaire, on étudie le groupe uniquement sous l'angle du résultat final selon la méthode pédagogique. Y a t'il un groupe où le nombre de bonnes réponses est nettement plus élevé au questionnaire final. La réponse est positive uniquement pour la question 1. Pour les autres questions, les deux groupes progressent sans que l'on puisse dire que l'un est supérieur à l'autre.
+
+NB: au départ il ne semble pas y avoir de différences entre les 2 groupes pour ce qui est de l'age, du sexe, de l'expérience professionnelle ou des connaissance.
+La réponse "ne se prononce pas" est embêtante:
+- elle fausse le caractère dichotomique de la réponse
+- elle  favorise les non réponses
+- faut-il l'exclure de l'analyse ou la compter avec les réponses fausses ?
+
+Conclusion:
+cette étude ne permet pas de conclure à la supériorité d'une méthode sur une autre mais il y a des biais méthodologiques iimportants qui obèrent l'interprétation. On peut aussi s'interroger sur la pertinence des questions posées pour discriminer les deux approches pédagogiques.
+- i initial (avant formation)
+- f final (après la formation)
+
+
+
+Analyse du fichier V3
+=====================
+1. le fichier est toujours sous forme de classeur excel => pas exploitable en l'état car les données sont dispersées sur 3 feuilles
+2. la sauvegarde du fichier excel entraine un plantage => abandonner excel pour ce type de travail et utiliser libre office (gratuit!)
+3. la deuxième ligne ne sert à rien => supprimer
+4. nom des colonnes: ne pas utiliser de caractères accentués qui sont mal traduits par windows
+5. PEC RCP: transformer toutes les données ayant plusieurs attributs dispersés sur plusieurs colonne avec des 0 et 1 en une variable sur 1 seule colonne avec le nom de l'attribut. Par exemple faire une seule colonne Pedagogie avec active et passive à la place des 0 et 1. Pareil pour les autres colonnes.
+6. ce qu'il ne faut pas faire...
 - les données sont dans un classeur de 3 feuilles ce qui revient à traiter 3 fichiers => impossible en l'état de comparer les données, il faut fusionner les fichiers
 - le sexe est sur 2 colonnes => faire une seule colonne H et F
 
-```{r init}
-file<-"QCM_2013_Qinitial.csv"
-f1<-read.csv(file,header=TRUE,sep=",")
+```{r lecture}
+library("epibasix")
 
-f1$Homme[!is.na(f1$Homme)]<-"H"
-f1$Homme[is.na(f1$Homme)]<-"F"
-f1$sexe[f1$Homme=="H"]<-"H"
-f1$sexe[f1$Homme=="F"]<-"F"
-f1<-f1[-3:-4]
-# expérience SXP sans exp, XPM3 moins de 3 ans, XPP3 plu de 3 ans
-f1$exp<-1:102
-f1$exp[]
-f1$exp[f1$Sans.XP==1]<-"SXP"
-f1$exp[f1[6]==1]<-"XPM3"
-f1$exp[f1[5]==1]<-"XPP3"
-f1<-f1[-4:-6]
-# origine
-f1$origine<-NA
-f1$origine[f1$Pro==1]<-"PRO"
-f1$origine[f1$Assoc==1]<-"ASSOC"
-f1$origine[f1$S.P.V==1]<-"SPV"
-f1<-f1[-4:-6]
-# pédagogie
-f1$pedago<-NA
-f1$pedago[f1$Active==1]<-"Active"
-f1$pedago[f1$Passive==1]<-"Passive"
-f1<-f1[-4:-5]
-}
+file<-"QCM_2013_Qinitial.csv"
+f1<-read.csv(file,header=TRUE,sep=",",skip=2)
+file<-"QCM_2013_Qfinal.csv"
+f2<-read.csv(file,header=TRUE,sep=",",skip=2)
+names(f1)
+names(f2)
 ```
 
-Comparaisons
-```{r Q1}
-table(f1$Q1i,f1$pedago)
+```{r analyse}
+summary(f1$SEXE)
+summary(f1$Experience)
+summary(f1$Pedagogie)
+t<-table(f1$SEXE,f1$Experience)
+t
+chisq.test(t)
+t<-table(f1$SEXE,f1$Pedagogie)
+t
+chisq.test(t)
+t<-table(f1$Experience,f1$Pedagogie)
+t
 chisq.test(t)
 ```
-ccl: pas de différence entre les groupes au départ pour Q1
+Analyse des questions
+---------------------
+
+
+#### Question1
+```{r q1}
+q1i<-table(f1$Q1,f1$Pedagogie)
+q1f<-table(f2$Q1,f2$Pedagogie)
+q1i
+q1f
+chisq.test(q1i)
+chisq.test(q1f)
+prop.table(q1i,2)
+prop.table(q1f,2)
+```
+#### Question2
+```{r q2}
+q2i<-table(f1$Q2,f1$Pedagogie)
+q2f<-table(f2$Q2,f2$Pedagogie)
+q2i
+q2f
+chisq.test(q2i)
+chisq.test(q2f)
+prop.table(q2i,2)
+prop.table(q2f,2)
+
+#### Question3
+```{r q3}
+q3i<-table(f1$Q3,f1$Pedagogie)
+q3f<-table(f2$Q3,f2$Pedagogie)
+q3i
+q3f
+chisq.test(q3i)
+chisq.test(q3f)
+prop.table(q3i,2)
+prop.table(q3f,2)
+
+#### Question4
+```{r q4}
+q4i<-table(f1$Q4,f1$Pedagogie)
+q4f<-table(f2$Q4,f2$Pedagogie)
+q4i
+q4f
+chisq.test(q4i)
+chisq.test(q4f)
+prop.table(q4i,2)
+prop.table(q4f,2)
+
+#### Question5
+```{r q5}

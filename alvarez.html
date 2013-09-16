@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Etude Alvarez</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Etude Alvarez</h1>
+
+<p>La question de recherche est dans Read.me</p>
+
+<p>Les données ne sont pas exploitables car pour un sujet donné ayant bénéficié d&#39;une pédgogie active (ou passive) on ne sait pas quel est son comportement face à une question avant et après la formation. pour chaque personne il faut pouvoir répondre à la question: a la question Qx le sujet i a pépondu juste avant la formation (oui ou non) et après la formation (oui ou non). L&#39;ensemble des réponses permet de compléter un tableau 2x2 qui sera soumis au test de Mac Nemar (variante du khi2 pour test dichotomique et séries appariées).</p>
+
+<p>Pour exploiter à minima le questionnaire, on étudie le groupe uniquement sous l&#39;angle du résultat final selon la méthode pédagogique. Y a t&#39;il un groupe où le nombre de bonnes réponses est nettement plus élevé au questionnaire final. La réponse est positive uniquement pour la question 1. Pour les autres questions, les deux groupes progressent sans que l&#39;on puisse dire que l&#39;un est supérieur à l&#39;autre.</p>
+
+<p>NB: au départ il ne semble pas y avoir de différences entre les 2 groupes pour ce qui est de l&#39;age, du sexe, de l&#39;expérience professionnelle ou des connaissance.
+La réponse &ldquo;ne se prononce pas&rdquo; est embêtante:</p>
+
+<ul>
+<li>elle fausse le caractère dichotomique de la réponse</li>
+<li>elle  favorise les non réponses</li>
+<li>faut-il l&#39;exclure de l&#39;analyse ou la compter avec les réponses fausses ?</li>
+</ul>
+
+<p>Conclusion:
+cette étude ne permet pas de conclure à la supériorité d&#39;une méthode sur une autre mais il y a des biais méthodologiques iimportants qui obèrent l&#39;interprétation. On peut aussi s&#39;interroger sur la pertinence des questions posées pour discriminer les deux approches pédagogiques.</p>
+
+<ul>
+<li>i initial (avant formation)</li>
+<li>f final (après la formation)</li>
+</ul>
+
+<h1>Analyse du fichier V3</h1>
+
+<ol>
+<li>le fichier est toujours sous forme de classeur excel =&gt; pas exploitable en l&#39;état car les données sont dispersées sur 3 feuilles</li>
+<li>la sauvegarde du fichier excel entraine un plantage =&gt; abandonner excel pour ce type de travail et utiliser libre office (gratuit!)</li>
+<li>la deuxième ligne ne sert à rien =&gt; supprimer</li>
+<li>nom des colonnes: ne pas utiliser de caractères accentués qui sont mal traduits par windows</li>
+<li>PEC RCP: transformer toutes les données ayant plusieurs attributs dispersés sur plusieurs colonne avec des 0 et 1 en une variable sur 1 seule colonne avec le nom de l&#39;attribut. Par exemple faire une seule colonne Pedagogie avec active et passive à la place des 0 et 1. Pareil pour les autres colonnes.</li>
+<li>ce qu&#39;il ne faut pas faire&hellip;</li>
+<li>les données sont dans un classeur de 3 feuilles ce qui revient à traiter 3 fichiers =&gt; impossible en l&#39;état de comparer les données, il faut fusionner les fichiers</li>
+<li>le sexe est sur 2 colonnes =&gt; faire une seule colonne H et F</li>
+</ol>
+
+<pre><code class="r">library(&quot;epibasix&quot;)
+
+file &lt;- &quot;QCM_2013_Qinitial.csv&quot;
+f1 &lt;- read.csv(file, header = TRUE, sep = &quot;,&quot;, skip = 2)
+file &lt;- &quot;QCM_2013_Qfinal.csv&quot;
+f2 &lt;- read.csv(file, header = TRUE, sep = &quot;,&quot;, skip = 2)
+names(f1)
+</code></pre>
+
+<pre><code>##  [1] &quot;N&quot;          &quot;Session&quot;    &quot;SEXE&quot;       &quot;Naissance&quot;  &quot;Experience&quot;
+##  [6] &quot;Domaine&quot;    &quot;Pedagogie&quot;  &quot;Q1&quot;         &quot;Q2&quot;         &quot;Q3&quot;        
+## [11] &quot;Q4&quot;         &quot;Q5&quot;         &quot;Q6&quot;
+</code></pre>
+
+<pre><code class="r">names(f2)
+</code></pre>
+
+<pre><code>##  [1] &quot;N&quot;          &quot;Session&quot;    &quot;SEXE&quot;       &quot;Naissance&quot;  &quot;Experience&quot;
+##  [6] &quot;Domaine&quot;    &quot;Pedagogie&quot;  &quot;Q1&quot;         &quot;Q2&quot;         &quot;Q3&quot;        
+## [11] &quot;Q4&quot;         &quot;Q5&quot;         &quot;Q6&quot;
+</code></pre>
+
+<pre><code class="r">summary(f1$SEXE)
+</code></pre>
+
+<pre><code>## Femme Homme 
+##    30    72
+</code></pre>
+
+<pre><code class="r">summary(f1$Experience)
+</code></pre>
+
+<pre><code>##  SXP XPM3 XPP3 
+##   78   18    6
+</code></pre>
+
+<pre><code class="r">summary(f1$Pedagogie)
+</code></pre>
+
+<pre><code>##  Active Passive 
+##      50      52
+</code></pre>
+
+<pre><code class="r">t &lt;- table(f1$SEXE, f1$Experience)
+t
+</code></pre>
+
+<pre><code>##        
+##         SXP XPM3 XPP3
+##   Femme  21    7    2
+##   Homme  57   11    4
+</code></pre>
+
+<pre><code class="r">chisq.test(t)
+</code></pre>
+
+<pre><code>## Warning: Chi-squared approximation may be incorrect
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  t 
+## X-squared = 1.056, df = 2, p-value = 0.5898
+</code></pre>
+
+<pre><code class="r">t &lt;- table(f1$SEXE, f1$Pedagogie)
+t
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   Femme     17      13
+##   Homme     33      39
+</code></pre>
+
+<pre><code class="r">chisq.test(t)
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  t 
+## X-squared = 0.6082, df = 1, p-value = 0.4355
+</code></pre>
+
+<pre><code class="r">t &lt;- table(f1$Experience, f1$Pedagogie)
+t
+</code></pre>
+
+<pre><code>##       
+##        Active Passive
+##   SXP      34      44
+##   XPM3     12       6
+##   XPP3      4       2
+</code></pre>
+
+<pre><code class="r">chisq.test(t)
+</code></pre>
+
+<pre><code>## Warning: Chi-squared approximation may be incorrect
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  t 
+## X-squared = 3.911, df = 2, p-value = 0.1415
+</code></pre>
+
+<h2>Analyse des questions</h2>
+
+<h4>Question1</h4>
+
+<pre><code class="r">q1i &lt;- table(f1$Q1, f1$Pedagogie)
+q1f &lt;- table(f2$Q1, f2$Pedagogie)
+q1i
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      31      30
+##   JUSTE     13      17
+##   NSP        6       5
+</code></pre>
+
+<pre><code class="r">q1f
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      10      22
+##   juste     37      30
+</code></pre>
+
+<pre><code class="r">chisq.test(q1i)
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q1i 
+## X-squared = 0.6017, df = 2, p-value = 0.7402
+</code></pre>
+
+<pre><code class="r">chisq.test(q1f)
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  q1f 
+## X-squared = 4.076, df = 1, p-value = 0.04349
+</code></pre>
+
+<pre><code class="r">prop.table(q1i, 2)
+</code></pre>
+
+<pre><code>##        
+##          Active Passive
+##   FAUX  0.62000 0.57692
+##   JUSTE 0.26000 0.32692
+##   NSP   0.12000 0.09615
+</code></pre>
+
+<pre><code class="r">prop.table(q1f, 2)
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX  0.2128  0.4231
+##   juste 0.7872  0.5769
+</code></pre>
+
+<h4>Question2</h4>
+
+<pre><code class="r">q2i &lt;- table(f1$Q2, f1$Pedagogie)
+q2f &lt;- table(f2$Q2, f2$Pedagogie)
+q2i
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      26      20
+##   JUSTE     10       9
+##   NSP       14      23
+</code></pre>
+
+<pre><code class="r">q2f
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      20      32
+##   juste     26      19
+##   NSP        1       1
+</code></pre>
+
+<pre><code class="r">chisq.test(q2i)
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q2i 
+## X-squared = 2.986, df = 2, p-value = 0.2247
+</code></pre>
+
+<pre><code class="r">chisq.test(q2f)
+</code></pre>
+
+<pre><code>## Warning: Chi-squared approximation may be incorrect
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q2f 
+## X-squared = 3.615, df = 2, p-value = 0.1641
+</code></pre>
+
+<pre><code class="r">prop.table(q2i, 2)
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX  0.5200  0.3846
+##   JUSTE 0.2000  0.1731
+##   NSP   0.2800  0.4423
+</code></pre>
+
+<pre><code class="r">prop.table(q2f, 2)
+</code></pre>
+
+<pre><code>##        
+##          Active Passive
+##   FAUX  0.42553 0.61538
+##   juste 0.55319 0.36538
+##   NSP   0.02128 0.01923
+</code></pre>
+
+<pre><code class="r">
+#### Question3
+</code></pre>
+
+<pre><code class="r">q3i &lt;- table(f1$Q3, f1$Pedagogie)
+q3f &lt;- table(f2$Q3, f2$Pedagogie)
+q3i
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      29      34
+##   JUSTE     17       9
+##   NSP        4       9
+</code></pre>
+
+<pre><code class="r">q3f
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      13      21
+##   juste     33      31
+##   NSP        1       0
+</code></pre>
+
+<pre><code class="r">chisq.test(q3i)
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q3i 
+## X-squared = 4.744, df = 2, p-value = 0.09329
+</code></pre>
+
+<pre><code class="r">chisq.test(q3f)
+</code></pre>
+
+<pre><code>## Warning: Chi-squared approximation may be incorrect
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q3f 
+## X-squared = 2.699, df = 2, p-value = 0.2593
+</code></pre>
+
+<pre><code class="r">prop.table(q3i, 2)
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX  0.5800  0.6538
+##   JUSTE 0.3400  0.1731
+##   NSP   0.0800  0.1731
+</code></pre>
+
+<pre><code class="r">prop.table(q3f, 2)
+</code></pre>
+
+<pre><code>##        
+##          Active Passive
+##   FAUX  0.27660 0.40385
+##   juste 0.70213 0.59615
+##   NSP   0.02128 0.00000
+</code></pre>
+
+<pre><code class="r">
+#### Question4
+</code></pre>
+
+<pre><code class="r">q4i &lt;- table(f1$Q4, f1$Pedagogie)
+q4f &lt;- table(f2$Q4, f2$Pedagogie)
+q4i
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX      34      34
+##   JUSTE     15      10
+##   NSP        1       8
+</code></pre>
+
+<pre><code class="r">q4f
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX       0       1
+##   FAUX      14      30
+##   juste     32      21
+##   NSP        1       0
+</code></pre>
+
+<pre><code class="r">chisq.test(q4i)
+</code></pre>
+
+<pre><code>## Warning: Chi-squared approximation may be incorrect
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q4i 
+## X-squared = 6.408, df = 2, p-value = 0.04061
+</code></pre>
+
+<pre><code class="r">chisq.test(q4f)
+</code></pre>
+
+<pre><code>## Warning: Chi-squared approximation may be incorrect
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  q4f 
+## X-squared = 9.874, df = 3, p-value = 0.01967
+</code></pre>
+
+<pre><code class="r">prop.table(q4i, 2)
+</code></pre>
+
+<pre><code>##        
+##         Active Passive
+##   FAUX  0.6800  0.6538
+##   JUSTE 0.3000  0.1923
+##   NSP   0.0200  0.1538
+</code></pre>
+
+<pre><code class="r">prop.table(q4f, 2)
+</code></pre>
+
+<pre><code>##        
+##          Active Passive
+##   FAUX  0.00000 0.01923
+##   FAUX  0.29787 0.57692
+##   juste 0.68085 0.40385
+##   NSP   0.02128 0.00000
+</code></pre>
+
+<pre><code class="r">
+#### Question5
+</code></pre>
+
+</body>
+
+</html>
+
