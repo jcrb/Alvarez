@@ -5,7 +5,7 @@ La question de recherche est dans Read.me
 
 Les données ne sont pas exploitables car pour un sujet donné ayant bénéficié d'une pédgogie active (ou passive) on ne sait pas quel est son comportement face à une question avant et après la formation. pour chaque personne il faut pouvoir répondre à la question: a la question Qx le sujet i a pépondu juste avant la formation (oui ou non) et après la formation (oui ou non). L'ensemble des réponses permet de compléter un tableau 2x2 qui sera soumis au test de Mac Nemar (variante du khi2 pour test dichotomique et séries appariées).
 
-Pour exploiter à minima le questionnaire, on étudie le groupe uniquement sous l'angle du résultat final selon la méthode pédagogique. Y a t'il un groupe où le nombre de bonnes réponses est nettement plus élevé au questionnaire final. La réponse est positive uniquement pour la question 1. Pour les autres questions, les deux groupes progressent sans que l'on puisse dire que l'un est supérieur à l'autre.
+Pour exploiter à minima le questionnaire, on étudie le groupe uniquement sous l'angle du résultat final selon la méthode pédagogique. Y a t'il un groupe où le nombre de bonnes réponses est nettement plus élevé au questionnaire final. La réponse est positive uniquement pour la question 1. Pourla question 4, il existe une différence entre es groupes avant la formation (cf infra). Pour les autres questions, les deux groupes progressent sans que l'on puisse dire que l'un est supérieur à l'autre.
 
 NB: au départ il ne semble pas y avoir de différences entre les 2 groupes pour ce qui est de l'age, du sexe, de l'expérience professionnelle ou des connaissance.
 La réponse "ne se prononce pas" est embêtante:
@@ -168,9 +168,17 @@ chisq.test(t)
 ## X-squared = 3.911, df = 2, p-value = 0.1415
 ```
 
-Analyse des questions
----------------------
+Pas de différence entre les deux groupes en ce qui concerne la répartition des sexes et l'expérience.
 
+Analyse des QCM
+---------------------
+On ne peut pas analyser la progression des individus selon la méthode peédagoqique utilisée, car il aurait fallu pouvoir suivre individuellement chaque sujet pour mesurer sa performance avant-après (le test approprié dans ce cas aurait été le test de Mac Nemar). En l'absence d'un tel suivi il n'est pas possible de dire si une différence observée est le fruit du hasard ou d'un réel effet de la méthode.
+
+On peut simpement mesurer si pour une question, les réponses diffèrent entre les groupes
+
+On observe une différence pour les questions 1 et 4:
+- pour la q1 le groupe pédagogie active a de eilleurs résultats que le groupe passif
+- pour q4 c'est plus délicat car il existe une différence entre les 2 groupes avant la formation. Le groupe actif est "meilleur" sur cette question et cette différence persiste après la fomation
 
 #### Question1
 
@@ -498,17 +506,17 @@ prop.table(q4f, 2)
 #### Question5
 
 ```r
-q5i <- table(f1$Q4, f1$Pedagogie)
-q5f <- table(f2$Q4, f2$Pedagogie)
+q5i <- table(f1$Q5, f1$Pedagogie)
+q5f <- table(f2$Q5, f2$Pedagogie)
 q5i
 ```
 
 ```
 ##        
 ##         Active Passive
-##   FAUX      34      34
-##   JUSTE     15      10
-##   NSP        1       8
+##   FAUX      28      25
+##   JUSTE     14      14
+##   NSP        8      13
 ```
 
 ```r
@@ -519,8 +527,8 @@ q5f
 ##        
 ##         Active Passive
 ##   FAUX       0       1
-##   FAUX      14      30
-##   juste     32      21
+##   FAUX      18      23
+##   JUSTE     28      28
 ##   NSP        1       0
 ```
 
@@ -529,15 +537,11 @@ chisq.test(q5i)
 ```
 
 ```
-## Warning: Chi-squared approximation may be incorrect
-```
-
-```
 ## 
 ## 	Pearson's Chi-squared test
 ## 
 ## data:  q5i 
-## X-squared = 6.408, df = 2, p-value = 0.04061
+## X-squared = 1.322, df = 2, p-value = 0.5164
 ```
 
 ```r
@@ -553,7 +557,7 @@ chisq.test(q5f)
 ## 	Pearson's Chi-squared test
 ## 
 ## data:  q5f 
-## X-squared = 9.874, df = 3, p-value = 0.01967
+## X-squared = 2.363, df = 3, p-value = 0.5005
 ```
 
 ```r
@@ -563,9 +567,9 @@ prop.table(q5i, 2)
 ```
 ##        
 ##         Active Passive
-##   FAUX  0.6800  0.6538
-##   JUSTE 0.3000  0.1923
-##   NSP   0.0200  0.1538
+##   FAUX  0.5600  0.4808
+##   JUSTE 0.2800  0.2692
+##   NSP   0.1600  0.2500
 ```
 
 ```r
@@ -576,14 +580,103 @@ prop.table(q5f, 2)
 ##        
 ##          Active Passive
 ##   FAUX  0.00000 0.01923
-##   FAUX  0.29787 0.57692
-##   juste 0.68085 0.40385
+##   FAUX  0.38298 0.44231
+##   JUSTE 0.59574 0.53846
 ##   NSP   0.02128 0.00000
 ```
 
 
+#### Question6
+
+```r
+q6i <- table(f1$Q6, f1$Pedagogie)
+q6f <- table(f2$Q6, f2$Pedagogie)
+q6i
+```
+
+```
+##        
+##         Active Passive
+##   FAUX      32      33
+##   JUSTE      7       3
+##   NSP       11      16
+```
+
+```r
+q6f
+```
+
+```
+##        
+##         Active Passive
+##   FAUX      29      36
+##   JUSTE     18      16
+```
+
+```r
+chisq.test(q6i)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  q6i 
+## X-squared = 2.503, df = 2, p-value = 0.2861
+```
+
+```r
+chisq.test(q6f)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  q6f 
+## X-squared = 0.3316, df = 1, p-value = 0.5647
+```
+
+```r
+prop.table(q6i, 2)
+```
+
+```
+##        
+##          Active Passive
+##   FAUX  0.64000 0.63462
+##   JUSTE 0.14000 0.05769
+##   NSP   0.22000 0.30769
+```
+
+```r
+prop.table(q6f, 2)
+```
+
+```
+##        
+##         Active Passive
+##   FAUX  0.6170  0.6923
+##   JUSTE 0.3830  0.3077
+```
+
+
+
 Analyse de la Prise en charge (PEC)
 ===================================
+
+La PEC est évaluée par une vingtaine de critères de jugements. On compare les deux méthodes pédagogiques sur ces critères avec le test du CHI-2. Ce test donne la probabilité d'observer un tel résultats s'il y a une différence d'efficacité entre les 2 groupes. On considère (arbitraireent) qu'une différence est significative (réelle) si cette probabilité est inférieure à 5% (p-value < 0.05)
+
+Sur cette règle de décision, seuls 2 critères de jugement sont significatifs:
+- "pas d'interruptions"
+- "stop message"
+et c'est la métode passive qui semble donner les meilleurs résultats ?
+Pour toutes les aures questions, il n'y a aps de différence entre les groupes.
+
 
 ```r
 file <- "QCM_2013_PEC.csv"
