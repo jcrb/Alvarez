@@ -326,10 +326,8 @@ prop.table(q2f, 2)
 ##   NSP   0.02128 0.01923
 ```
 
-```r
 
 #### Question3
-```
 
 ```r
 q3i <- table(f1$Q3, f1$Pedagogie)
@@ -409,10 +407,8 @@ prop.table(q3f, 2)
 ##   NSP   0.02128 0.00000
 ```
 
-```r
 
 #### Question4
-```
 
 ```r
 q4i <- table(f1$Q4, f1$Pedagogie)
@@ -498,8 +494,585 @@ prop.table(q4f, 2)
 ##   NSP   0.02128 0.00000
 ```
 
-```r
 
 #### Question5
+
+```r
+q5i <- table(f1$Q4, f1$Pedagogie)
+q5f <- table(f2$Q4, f2$Pedagogie)
+q5i
+```
+
+```
+##        
+##         Active Passive
+##   FAUX      34      34
+##   JUSTE     15      10
+##   NSP        1       8
+```
+
+```r
+q5f
+```
+
+```
+##        
+##         Active Passive
+##   FAUX       0       1
+##   FAUX      14      30
+##   juste     32      21
+##   NSP        1       0
+```
+
+```r
+chisq.test(q5i)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  q5i 
+## X-squared = 6.408, df = 2, p-value = 0.04061
+```
+
+```r
+chisq.test(q5f)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  q5f 
+## X-squared = 9.874, df = 3, p-value = 0.01967
+```
+
+```r
+prop.table(q5i, 2)
+```
+
+```
+##        
+##         Active Passive
+##   FAUX  0.6800  0.6538
+##   JUSTE 0.3000  0.1923
+##   NSP   0.0200  0.1538
+```
+
+```r
+prop.table(q5f, 2)
+```
+
+```
+##        
+##          Active Passive
+##   FAUX  0.00000 0.01923
+##   FAUX  0.29787 0.57692
+##   juste 0.68085 0.40385
+##   NSP   0.02128 0.00000
+```
+
+
+Analyse de la Prise en charge (PEC)
+===================================
+
+```r
+file <- "QCM_2013_PEC.csv"
+f3 <- read.csv(file, header = TRUE, sep = ",", skip = 1)
+names(f3)
+```
+
+```
+##  [1] "X"                    "Session"              "Evaluateur"          
+##  [4] "Pedagogie"            "Protection"           "neuro"               
+##  [7] "LVA"                  "respi"                "Alerte"              
+## [10] "STOP.MES.APRES"       "Position"             "Rythme"              
+## [13] "Alternance"           "Insufflation"         "Pas.d.interruption"  
+## [16] "STOP.MES"             "DAE.des.que.possible" "secutité"            
+## [19] "RCP.apres.choc"       "Pouls.si.pas.choc"    "STOP.MES.1"          
+## [22] "spontané"             "sur.demande"
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Protection)
+t
+```
+
+```
+##          
+##            0  1
+##   active   0 31
+##   passive  2 28
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.5516, df = 1, p-value = 0.4577
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$neuro)
+t
+```
+
+```
+##          
+##            0  1
+##   active   6 25
+##   passive 12 18
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 2.21, df = 1, p-value = 0.1371
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$LVA)
+t
+```
+
+```
+##          
+##            0  1
+##   active  10 21
+##   passive 11 19
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.0086, df = 1, p-value = 0.9261
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$respi)
+t
+```
+
+```
+##          
+##            0  1
+##   active  17 14
+##   passive 16 14
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0, df = 1, p-value = 1
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Alerte)
+t
+```
+
+```
+##          
+##            0  1
+##   active  16 15
+##   passive  8 22
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 2.999, df = 1, p-value = 0.08331
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$STOP.MES.APRES)
+t
+```
+
+```
+##          
+##           1
+##   active  6
+##   passive 4
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  t 
+## X-squared = 0.4, df = 1, p-value = 0.5271
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Position)
+t
+```
+
+```
+##          
+##            0  1
+##   active   6 19
+##   passive  5 21
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.0054, df = 1, p-value = 0.9415
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Rythme)
+t
+```
+
+```
+##          
+##            0  1
+##   active   9 16
+##   passive 11 15
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.0304, df = 1, p-value = 0.8616
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Alternance)
+t
+```
+
+```
+##          
+##            0  1
+##   active   4 21
+##   passive  5 21
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0, df = 1, p-value = 1
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Insufflation)
+t
+```
+
+```
+##          
+##            0  1
+##   active  13 12
+##   passive 14 12
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0, df = 1, p-value = 1
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Pas.d.interruption)
+t
+```
+
+```
+##          
+##            0  1
+##   active  11 14
+##   passive  3 23
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 5.212, df = 1, p-value = 0.02243
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$STOP.MES)
+t
+```
+
+```
+##          
+##           1
+##   active  6
+##   passive 0
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  t 
+## X-squared = 6, df = 1, p-value = 0.01431
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$DAE.des.que.possible)
+t
+```
+
+```
+##          
+##            0  1
+##   active   3 16
+##   passive  5 21
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0, df = 1, p-value = 1
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$secutité)
+t
+```
+
+```
+##          
+##            0  1
+##   active   9 10
+##   passive 16 10
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.4111, df = 1, p-value = 0.5214
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$RCP.apres.choc)
+t
+```
+
+```
+##          
+##            0  1
+##   active   4 15
+##   passive  3 23
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.2056, df = 1, p-value = 0.6503
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$Pouls.si.pas.choc)
+t
+```
+
+```
+##          
+##            0  1
+##   active   8 11
+##   passive 11 15
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0, df = 1, p-value = 1
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$STOP.MES.1)
+t
+```
+
+```
+##          
+##           1
+##   active  1
+##   passive 2
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## Warning: Chi-squared approximation may be incorrect
+```
+
+```
+## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  t 
+## X-squared = 0.3333, df = 1, p-value = 0.5637
+```
+
+```r
+
+t <- table(f3$Pedagogie, f3$spontané)
+t
+```
+
+```
+##          
+##            0  1
+##   active  11  7
+##   passive 18  6
+```
+
+```r
+chisq.test(t)
+```
+
+```
+## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  t 
+## X-squared = 0.3922, df = 1, p-value = 0.5311
 ```
 

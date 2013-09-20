@@ -81,6 +81,7 @@ chisq.test(q2i)
 chisq.test(q2f)
 prop.table(q2i,2)
 prop.table(q2f,2)
+```
 
 #### Question3
 ```{r q3}
@@ -92,6 +93,7 @@ chisq.test(q3i)
 chisq.test(q3f)
 prop.table(q3i,2)
 prop.table(q3f,2)
+```
 
 #### Question4
 ```{r q4}
@@ -103,6 +105,97 @@ chisq.test(q4i)
 chisq.test(q4f)
 prop.table(q4i,2)
 prop.table(q4f,2)
+```
 
 #### Question5
 ```{r q5}
+q5i<-table(f1$Q4,f1$Pedagogie)
+q5f<-table(f2$Q4,f2$Pedagogie)
+q5i
+q5f
+chisq.test(q5i)
+chisq.test(q5f)
+prop.table(q5i,2)
+prop.table(q5f,2)
+```
+
+Analyse de la Prise en charge (PEC)
+===================================
+```{r}
+file<-"QCM_2013_PEC.csv"
+f3<-read.csv(file,header=TRUE,sep=",",skip=1)
+names(f3)
+
+t<-table(f3$Pedagogie,f3$Protection)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$neuro)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$LVA)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$respi)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Alerte)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$STOP.MES.APRES)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Position)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Rythme)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Alternance)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Insufflation)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Pas.d.interruption)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$STOP.MES)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$DAE.des.que.possible)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$secutité)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$RCP.apres.choc)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$Pouls.si.pas.choc)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$STOP.MES.1)
+t
+chisq.test(t)
+
+t<-table(f3$Pedagogie,f3$spontané)
+t
+chisq.test(t)
+
+```
